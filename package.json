@@ -2,9 +2,9 @@
   "name": "api",
   "version": "1.0.0",
   "description": "API REST para MondoDB con implementación CRUD",
-  "main": "src/index.js",
+  "main": "src/app-http.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon app-http.js"
   },
   "repository": {
     "type": "git",

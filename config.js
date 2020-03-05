@@ -1,12 +1,15 @@
 const config = {};
 
-config.port = process.env.PORT || 443;
+config.portHttp = process.env.PORT || 3001;
+config.portHttps = process.env.PORT || 3002;
 
 config.db = 'mongodb://localhost/finance';
 
 config.key = "ERICK-2020*XXIII";
 
-config.privkey = "/etc/letsencrypt/live/finance.erickfabricio.com-0001/privkey.pem";
-config.fullchain = "/etc/letsencrypt/live/finance.erickfabricio.com-0001/fullchain.pem";
+//DEV
+config.keytmp = "../keys/keytmp.pem";
+config.cert = "../keys/cert.pem";
+config.passphrase = "erick2020"
 
 module.exports = config;
