@@ -18,6 +18,17 @@ const config = require('../config');
 const https = require('https');
 const app = express();
 
+//Start server
+const server = https.createServer({
+    key: fs.readFileSync(config.keytmp),
+    cert: fs.readFileSync(config.cert),
+    passphrase: config.passphrase
+}, app);
+
+server.listen(config.portHttps, () => {
+    console.log("Server web on port:", config.portHttps);
+});
+
 //MongoDB
 mongoose.Promise = global.Promise;
 mongoose.connect(config.db, {
@@ -45,20 +56,6 @@ app.use('/api/data', validateToken, require('./routers/adm-data'));
 app.use('/api/catalogs', validateToken, require('./routers/adm-catalogs'));
 
 app.use('/api/transactions', validateToken, require('./routers/app-transactions'));
-
-//Start server
-/*
-app.listen(config.port, () => {
-    console.log("Server web on port:", config.port);
-});*/
-
-https.createServer({
-    key: fs.readFileSync(config.privkey),
-    cert: fs.readFileSync(config.fullchain)
-}, app)
-    .listen(config.port, function () {
-        console.log("Server web on port:", config.port)
-    })
 
 //******** Util ********//
 

@@ -16,6 +16,11 @@ const config = require('../config');
 //Server
 const app = express();
 
+//Start server
+app.listen(config.portHttp, () => {
+    console.log("Server web on port:", config.portHttp);
+});
+
 //MongoDB
 mongoose.Promise = global.Promise;
 mongoose.connect(config.db, {
@@ -23,7 +28,6 @@ mongoose.connect(config.db, {
 }).then(db => console.log('Server db is connected'))
   .catch(err => console.log(err));
   
-
 //Middleware
 app.use(morgan('dev'));
 app.use(cors());
@@ -43,11 +47,6 @@ app.use('/api/data', validateToken, require('./routers/adm-data'));
 app.use('/api/catalogs', validateToken, require('./routers/adm-catalogs'));
 
 app.use('/api/transactions', validateToken, require('./routers/app-transactions'));
-
-//Start server
-app.listen(config.port, () => {
-    console.log("Server web on port:", config.port);
-});
 
 //******** Util ********//
 
