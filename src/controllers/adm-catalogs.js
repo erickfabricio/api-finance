@@ -3,7 +3,7 @@ const Catalog = require('../models/adm-catalogs');
 module.exports = {
 
     find: async (req, res, next) => {
-        const catalogs = await Catalog.find(req.body.query, req.body.parms).sort('-creationDate');        
+        const catalogs = await Catalog.find(req.body.query, req.body.parms).sort('name');
         res.status(200).json(catalogs);
     },
 
