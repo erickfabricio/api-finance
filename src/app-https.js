@@ -19,10 +19,17 @@ const https = require('https');
 const app = express();
 
 //Start server
+/*
 const server = https.createServer({
     key: fs.readFileSync(config.keytmp),
     cert: fs.readFileSync(config.cert),
     passphrase: config.passphrase
+}, app);*/
+
+
+const server = https.createServer({
+    key: fs.readFileSync(config.privkey),
+    cert: fs.readFileSync(config.fullchain)
 }, app);
 
 server.listen(config.portHttps, () => {
