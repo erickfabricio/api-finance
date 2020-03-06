@@ -15,7 +15,7 @@ config.cert = "../keys/cert.pem";
 config.passphrase = "erick2020"
 
 //Let
-config.privkey = ".../etc/letsencrypt/live/finance.erickfabricio.com-0001/keytmp.pem";
-config.fullchain = ".../etc/letsencrypt/live/finance.erickfabricio.com-0001/fullchain.pem";
+config.privkey = "/etc/letsencrypt/live/finance.erickfabricio.com-0001/keytmp.pem";
+config.fullchain = "/etc/letsencrypt/live/finance.erickfabricio.com-0001/fullchain.pem";
 
 module.exports = config;
