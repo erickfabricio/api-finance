@@ -12,6 +12,18 @@ const schema = new mongoose.Schema({
     //Default
     creationDate: { type: Date, default: Date.now },
     state: String
+    /*
+    //Log
+    logs: [
+        {
+            user: String,
+            action: String,
+            description: String,
+            entity: String,
+            creationDate: { type: Date, default: Date.now }
+        }
+    ]*/
+
 }, {
     versionKey: false
 });

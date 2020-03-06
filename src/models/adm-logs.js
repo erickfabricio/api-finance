@@ -1,9 +1,17 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
-    user: String,
-    description: String,
-    json: {},
+
+    logs: [
+        {
+            user: String,
+            action: String, //Read, Create, Update and Delete
+            description: String,            
+            entity: {},
+            creationDate: { type: Date, default: Date.now }            
+        }
+    ],
+
     creationDate: { type: Date, default: Date.now },
     state: String
 }, {
